@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('/configuracion/bank','BankController@Directory');
+
 Route::get('/', function () {
     return view('welcome');
 });
