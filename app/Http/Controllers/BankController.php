@@ -9,7 +9,8 @@ class BankController extends Controller
 {
   public function Directory(){
 
-    $bancos = Bank::where('banco','LIKE','ga%')->get();
+    // $bancos = Bank::where('banco','LIKE','ga%')->get();
+    $bancos = Bank::all();
       return view('configuracion.bank', ['bancos' => $bancos]);
     }
 }
