@@ -59,14 +59,17 @@
               <div class="col-lg-12">
                   <table class="table table-bordered" id="mitabla">
                     <thead>
-                      <th>ID</th>
+                      <th>OPCIONES</th>
                       <th>BANCO</th>
                       <th>CONDICION</th>
                     </thead>
                       <tbody>
                         @foreach ($bancos as $key => $value)
                           <tr>
-                            <td>{{$value->idbanco}}</td>
+                            <td>
+                              <button class="btn btn-warning"><a href="{{ route('editarbank', $value->id)}}"><i class="fa fa-pencil"></i></a></button>
+                              <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                            </td>
                             <td>{{$value->banco}}</td>
                             <td>{{$value->condicion}}</td>
                           </tr>

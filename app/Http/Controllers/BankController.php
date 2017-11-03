@@ -13,4 +13,10 @@ class BankController extends Controller
     $bancos = Bank::all();
       return view('configuracion.bank', ['bancos' => $bancos]);
     }
+
+    public function editar($id){
+      $banco = Bank::find($id);
+      return view('configuracion.probando')->with('banco', $banco);
+    }
+
 }
