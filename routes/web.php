@@ -13,7 +13,10 @@
 
 
 Route::get('/configuracion/bank','BankController@Directory');
+Route::post('/configuracion/bank/alta','BankController@alta');
 Route::get('/configuracion/bank/editar/{id}', 'BankController@editar')->name('editarbank');
+
+
 
 Route::get('/', function () {
     return view('welcome');

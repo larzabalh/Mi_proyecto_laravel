@@ -13,8 +13,10 @@
 </div>
 
   @include('template.footer')
-
   @yield('java')
+
+
+
 
   </body>
 </html>

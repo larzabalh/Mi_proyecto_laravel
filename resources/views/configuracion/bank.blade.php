@@ -6,12 +6,9 @@
 
 
   <div id="page-wrapper">
-      {{-- <div class="row">
-          <div class="col-lg-6">
+      <div class="row">
+          <div class="col-lg-12">
               <h1 class="page-header">FORMULARIO</h1>
-          </div>
-          <div class="col-lg-6">
-              <h1 class="page-header">BANCOS</h1>
           </div>
           <!-- /.col-lg-12 -->
       </div>
@@ -20,44 +17,32 @@
           <div class="col-lg-6">
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      FORMULARIO DE ALTA
+                      ALTA DE BANCOS
                   </div>
-                  <div class="panel-body">
-                      <div class="row">
-                          <div class="col-lg-6">
+                  <div class="panel-body" id="formularioregistros">
+                      <form name="" id="" method="POST">
+                        {{ csrf_field() }}
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <label>Nombre:</label>
+                          <input type="text" class="form-control" name="banco" maxlength="50" placeholder="Nombre del banco">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
 
-
-                              {!! Form::open ()!!}
-
-                              {!! Form::close ()!!}
-
-                          </div>
-                          <!-- /.col-lg-6 (nested) -->
-                      </div>
-                      <!-- /.row (nested) -->
+                          <button class="btn btn-danger" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                        </div>
+                      </form>
                   </div>
                   <!-- /.panel-body -->
               </div>
               <!-- /.panel -->
-          </div> --}}
+          </div>
 
-          {{-- <div class="row">
-              <div class="col-lg-6">
-                  <h2>BANCOS</h2>
-                  <ul class="list-group">
-                    @foreach ($bancos as $key => $value)
-                      <li>{{$value->id}}</li>
-                      <li>{{$value->banco}}</li>
-                      <li>{{$value->condicion}}</li>
-                    @endforeach
-                  </ul>
-              </div>
-              <!-- /.col-lg-12 -->
-          </div> --}}
+
 
           <div class="panel-body">
               <div class="col-lg-12">
-                  <table class="table table-bordered" id="mitabla">
+                  <table id="mitabla" class="table table-striped table-bordered table-condensed table-hover">
                     <thead>
                       <th>OPCIONES</th>
                       <th>BANCO</th>
@@ -67,7 +52,7 @@
                         @foreach ($bancos as $key => $value)
                           <tr>
                             <td>
-                              <button class="btn btn-warning"><a href="{{ route('editarbank', $value->id)}}"><i class="fa fa-pencil"></i></a></button>
+                              <button class="btn btn-secondary"><a href="{{ route('editarbank', $value->id)}}"><i class="fa fa-pencil"></i></a></button>
                               <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                             </td>
                             <td>{{$value->banco}}</td>
@@ -75,6 +60,11 @@
                           </tr>
                         @endforeach
                       </tbody>
+                      <tfoot>
+                        <th>OPCIONES</th>
+                        <th>BANCO</th>
+                        <th>CONDICION</th>
+                      </tfoot>
                   </table>
               </div>
               <!-- /.col-lg-12 -->
@@ -91,7 +81,12 @@
 
 
 @section('java')
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+{{-- <script>
+  $(document).ready(function(){
+      $('#mitabla').DataTable()
+    });
+</script> --}}
 
   <script>
   $(document).ready(function(){
@@ -107,7 +102,7 @@
                     'pdf'
                 ],
         "bDestroy": true,
-        "iDisplayLength": 10,//Paginación
+        "iDisplayLength": 5,//Paginación
         "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
       }
     );

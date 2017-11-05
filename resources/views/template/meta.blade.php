@@ -25,12 +25,13 @@
     <!-- Custom Fonts -->
     <link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- DATATABLES -->
+    {{-- <!-- DATATABLES -->
     <link rel="stylesheet" type="text/css" href="../plugins/datatables/jquery.dataTables.min.css">
     <link href="../plugins/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
     <link href="../plugins/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" type="text/css" href="../plugins/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../plugins/css/bootstrap-select.min.css"> --}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
