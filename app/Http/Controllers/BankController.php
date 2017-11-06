@@ -33,4 +33,10 @@ class BankController extends Controller
 
         return redirect('configuracion.bank');
       }
+
+      public function formulario(){
+
+
+          return view('configuracion.bank-alta');
+        }
 }
