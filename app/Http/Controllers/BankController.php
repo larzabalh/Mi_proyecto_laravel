@@ -17,7 +17,7 @@ class BankController extends Controller
 
     public function editar($id){
       $banco = Bank::find($id);
-      return view('configuracion.probando')->with('banco', $banco);
+      return view('configuracion.bank-editar')->with('banco', $banco);
     }
 
     public function alta(Request $request){
@@ -44,4 +44,16 @@ class BankController extends Controller
 
           return view('configuracion.bank-alta');
         }
+
+        public function editar_grabar(Request $request, $id){
+
+          $banco = Bank::find($id);
+          $banco->banco = $request->input('banco');
+
+          $banco->save();
+
+            return redirect()->route('bank');
+          }
+
+
 }

@@ -17,20 +17,21 @@
           <div class="col-lg-6">
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      ALTA DE BANCOS
+                      EDICION DE BANCOS
                   </div>
                   <div class="panel-body" id="formularioregistros">
-                      <form name="" id="" method="POST">
+                      <form name="" id="" method="POST" action="{{route('gasto.update',$gasto->id)}}">
+                        <input type="hidden" name="_method" value="put" />
                         {{ csrf_field() }}
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                           <label>Nombre:</label>
-                          <input type="text" class="form-control" name="banco" maxlength="50" placeholder="Nombre del banco">
+                          <input type="text" value ="{{ $gasto->gasto}}" class="form-control" name="gasto" maxlength="50">
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
                       </form>
 
-                          <a href="{{'bank'}}" class="btn btn-primary"><i class="fa fa-save"></i>volver</a>
+                          <a href="{{route('gasto.index')}}" class="btn btn-primary"><i class="fa fa-save"></i>volver</a>
                         </div>
 
                   </div>
@@ -47,35 +48,4 @@
       <!-- /.row -->
   </div>
   <!-- /#page-wrapper -->
-@endsection
-
-
-@section('java')
-
-{{-- <script>
-  $(document).ready(function(){
-      $('#mitabla').DataTable()
-    });
-</script> --}}
-
-  <script>
-  $(document).ready(function(){
-      $('#mitabla').DataTable(
-{
-        "aProcessing": true,//Activamos el procesamiento del datatables
-        "aServerSide": true,//Paginación y filtrado realizados por el servidor
-        dom: 'Bfrtip',//Definimos los elementos del control de tabla
-        buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdf'
-                ],
-        "bDestroy": true,
-        "iDisplayLength": 5,//Paginación
-        "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
-      }
-    );
-  });
-</script>
 @endsection

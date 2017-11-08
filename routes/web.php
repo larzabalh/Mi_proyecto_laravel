@@ -13,10 +13,13 @@
 
 
 Route::get('/configuracion/bank','BankController@directory')->name('bank');
-Route::get('/configuracion/bank-alta','BankController@formulario')->name('bank-alta');
-Route::post('/configuracion/bank-alta','BankController@alta')->name('bank-alta-post');
-Route::get('/configuracion/bank/editar/{id}', 'BankController@editar')->name('editarbank');
+Route::post('/configuracion/bank','BankController@alta')->name('bank-alta-post');
 
+Route::get('/configuracion/bank-editar/{id}', 'BankController@editar')->name('editarbank');
+Route::delete('/configuracion/bank-editar/{id}', 'BankController@delete')->name('borrarbank');
+Route::post('/configuracion/bank-editar/{id}', 'BankController@editar_grabar')->name('editarbank-post');
+
+Route::resource('/configuracion/gasto', 'GastosController');
 
 
 Route::get('/', function () {

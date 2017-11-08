@@ -6,24 +6,24 @@
 
     <title>@yield('title','ESTUDIO CONTABLE - LARZABAL')</title>
     <!-- Latest compiled and minified CSS -->
-    <link href="../plugins/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/plugins/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
-    <link href="../plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
-    <link href="../plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../plugins/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/plugins/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../plugins/morrisjs/morris.css" rel="stylesheet">
+    <link href="/plugins/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     {{-- <!-- DATATABLES -->
     <link rel="stylesheet" type="text/css" href="../plugins/datatables/jquery.dataTables.min.css">

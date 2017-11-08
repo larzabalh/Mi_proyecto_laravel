@@ -19,21 +19,20 @@
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    ALTA DE BANCOS
+                    ALTA DE GASTOS
                 </div>
                 <div class="panel-body" id="formularioregistros">
                     <form name="" id="" method="POST">
                       {{ csrf_field() }}
                       <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <label>Nombre:</label>
-                        <input type="text" class="form-control" name="banco" maxlength="50" placeholder="Nombre del banco">
+                        <input type="text" class="form-control" name="gasto" maxlength="50" placeholder="Nombre del gasto">
                       </div>
                       <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+                      </div>
                     </form>
 
-                        <a href="{{'bank'}}" class="btn btn-primary"><i class="fa fa-save"></i>volver</a>
-                      </div>
 
                 </div>
                 <!-- /.panel-body -->
@@ -52,13 +51,20 @@
                       <th>CONDICION</th>
                     </thead>
                       <tbody>
-                        @foreach ($bancos as $key => $value)
+                        @foreach ($gastos as $key => $value)
                           <tr>
                             <td>
-                              <button class="btn btn-secondary"><a href="{{ route('editarbank', $value->id)}}"><i class="fa fa-pencil"></i></a></button>
-                              <button class="btn btn-danger"><a href="{{ route('nota.de', $value->id)}}"><i class="fa fa-trash-o"></i></button>
+                              <form method="POST" action =" {{route('gasto.destroy', $value->id)}}">
+                              <button class="btn btn-secondary"><a href="{{ route('gasto.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></button>
+
+
+                                  <input type="hidden" name="_method" value="delete" />
+                                  {{ csrf_field() }}
+                                  <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                </form>
+
                             </td>
-                            <td>{{$value->banco}}</td>
+                            <td>{{$value->gasto}}</td>
                             <td>{{$value->condicion}}</td>
                           </tr>
                         @endforeach
