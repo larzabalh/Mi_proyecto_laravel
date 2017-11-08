@@ -29,7 +29,8 @@
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
                       </form>
-                          <a href="{{'bank'}}"><button class="btn btn-primary"><i class="fa fa-save"></i>volver</button></a>
+
+                          <a href="{{'bank'}}" class="btn btn-primary"><i class="fa fa-save"></i>volver</a>
                         </div>
 
                   </div>

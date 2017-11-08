@@ -12,8 +12,9 @@
 */
 
 
-Route::get('/configuracion/bank','BankController@Directory')->name ('bank ');
-Route::get('/configuracion/bank-alta','BankController@formulario')->name ('bank-alta');
+Route::get('/configuracion/bank','BankController@directory')->name('bank');
+Route::get('/configuracion/bank-alta','BankController@formulario')->name('bank-alta');
+Route::post('/configuracion/bank-alta','BankController@alta')->name('bank-alta-post');
 Route::get('/configuracion/bank/editar/{id}', 'BankController@editar')->name('editarbank');
 
 

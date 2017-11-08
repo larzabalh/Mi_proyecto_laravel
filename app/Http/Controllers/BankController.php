@@ -8,7 +8,7 @@ use App\Bank;
 
 class BankController extends Controller
 {
-  public function Directory(){
+  public function directory(){
 
     // $bancos = Bank::where('banco','LIKE','ga%')->get();
     $bancos = Bank::all();
@@ -27,11 +27,16 @@ class BankController extends Controller
       //Episode::create($request->all());
       //Si no coincide, le tengo que pasar todos los campos y asociarlos.
 
-      $banco = Bank::create([
+      // $banco = Bank::create([
+      //   'banco' => $request->input('banco')
+      // ]);
+
+      $banco = new Bank([
         'banco' => $request->input('banco')
       ]);
+      $banco->save();
 
-        return redirect('configuracion.bank');
+        return redirect()->route('bank');
       }
 
       public function formulario(){
