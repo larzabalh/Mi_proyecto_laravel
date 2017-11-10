@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ccf84852d81688954f5ec38e4b14d55",
-    "content-hash": "ab9ecc8ef90c1e20650c2ffb6427b98e",
+    "hash": "5fea39f9cbe08ac67c7f6c3a1bcc25bf",
+    "content-hash": "a0e2cbd959daf1319858e47c31ba122a",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -662,6 +662,68 @@
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
             "time": "2017-08-31 14:46:03"
+        },
+        {
+            "name": "laraveles/spanish",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laraveles/spanish.git",
+                "reference": "7a82c29c330472792f63c32b6c3e14945e023986"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laraveles/spanish/zipball/7a82c29c330472792f63c32b6c3e14945e023986",
+                "reference": "7a82c29c330472792f63c32b6c3e14945e023986",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.4.0 || ~5.5.0",
+                "illuminate/support": "~5.4.0 || ~5.5.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.4",
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laraveles\\Spanish\\SpanishServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laraveles\\Spanish\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Israel Ortuño",
+                    "email": "ai.ortuno@gmail.com"
+                },
+                {
+                    "name": "Cesar Garcia",
+                    "email": "cesargb@gmail.com",
+                    "homepage": "https://github.com/cesargb",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Conjunto de traducciones en español para Laravel",
+            "homepage": "https://github.com/Laraveles/spanish",
+            "keywords": [
+                "laravel",
+                "laraveles",
+                "spanish",
+                "traduccion"
+            ],
+            "time": "2017-09-13 10:25:48"
         },
         {
             "name": "league/flysystem",

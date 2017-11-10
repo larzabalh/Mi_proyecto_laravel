@@ -5,7 +5,10 @@
 @section('content')
 
 
+
   <div id="page-wrapper">
+    <h1> @lang('messages.welcome') </h1>
+    <h1> {{__('messages.welcome')}}</h1>
       {{-- <div class="row">
           <div class="col-lg-12">
             <br>
