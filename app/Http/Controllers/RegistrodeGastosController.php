@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Gasto;
-use App\Tipo_de_gasto;
-use App\Http\Requests\GastosRequest;
 
-class GastosController extends Controller
+class RegistrodeGastosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class GastosController extends Controller
      */
     public function index()
     {
-      $gastos = Gasto::all();
-      $tipos = Tipo_de_gasto::all();
-        return view('configuracion.gasto', ['gastos' => $gastos,'tipos' => $tipos]);
+        //
     }
 
     /**
@@ -37,14 +32,9 @@ class GastosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GastosRequest $request)
+    public function store(Request $request)
     {
-      $gasto = new Gasto([
-        'gasto' => $request->input('gasto'),
-        'tipo_de_gasto_id' => $request->input('tipo')
-      ]);
-      $gasto->save();
-      return redirect()->route('gasto.index');
+        //
     }
 
     /**
@@ -66,11 +56,7 @@ class GastosController extends Controller
      */
     public function edit($id)
     {
-      $gasto = Gasto::find($id);
-      $tipos = Tipo_de_gasto::all();
-      return view('configuracion.gasto-editar')
-      ->with('gasto', $gasto)
-      ->with('tipos', $tipos);
+        //
     }
 
     /**
@@ -82,13 +68,7 @@ class GastosController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $gasto = Gasto::find($id);
-      $gasto->gasto = $request->input('gasto');
-      $gasto->tipo_de_gasto_id = $request->input('tipo');
-
-      $gasto->save();
-
-        return redirect()->route('gasto.index');
+        //
     }
 
     /**
@@ -99,8 +79,6 @@ class GastosController extends Controller
      */
     public function destroy($id)
     {
-      $gasto = Gasto::find($id);
-      $gasto->delete();
-      return redirect()->route('gasto.index');
+        //
     }
 }

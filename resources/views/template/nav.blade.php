@@ -276,10 +276,10 @@
                             <a href="#">GASTOS<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="nombre_del_gasto.php">NOMBRES DE GASTOS</a>
+                                    <a href="{{ route('gasto.index')}}">GASTOS</a>
                                 </li>
                                 <li>
-                                    <a href="tipo_gasto.php">TIPOS DE GASTOS</a>
+                                    <a href="{{ route('tipos_de_gastos.index')}}">TIPOS DE GASTOS</a>
                                 </li>
                             </ul>
                             <!-- /.nav-third-level -->
@@ -294,7 +294,7 @@
                       <a href="index.php"><i class="fa fa-dashboard fa-fw"></i>REGISTROS BANCARIOS</a>
                   </li>
                   <li>
-                      <a href="registro_gastos.php"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
+                      <a href="{{route ('registrodegastos.index')}}"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
                   </li>
                   <li>
                       <a href="forms.php"><i class="fa fa-edit fa-fw"></i> FORMULARIOS</a>

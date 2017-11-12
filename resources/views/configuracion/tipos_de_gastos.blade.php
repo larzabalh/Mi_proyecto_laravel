@@ -7,46 +7,27 @@
 
 
   <div id="page-wrapper">
-
       <div class="row">
 
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    ALTA DE GASTOS
+                    ALTA DE TIPOS DE GASTOS
                 </div>
-                <div class="panel-body" id="formularioregistros">
+                <div class="panel-body">
                     <form name="" id="" method="POST">
                       {{ csrf_field() }}
                       <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <label>Nombre:</label>
-                        <input type="text" class="form-control" name="gasto" maxlength="50" placeholder="Nombre del gasto">
+                        <input type="text" class="form-control" name="tipo" maxlength="50" placeholder="Tipo del Gasto">
                       </div>
-                      <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label>Tipo de Gastos:</label><br>
-                        <select class="form-control" name="tipo">
-                          <option selected></option>
-                          @foreach ($tipos as $key => $value)
-                            <option value={{$value->id}}>{{$value->tipo}}</option>
-                          @endforeach
-                        </select>
-                      </div>
-
                       <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
                       </div>
                     </form>
-                    @if (count($errors)>0)
-                      <div class="alert alert-danger">
-                        <ul>
-                          @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                          @endforeach
-                        </ul>
-                      </div>
 
-                    @endif
-                  </div>
+
+                </div>
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
@@ -58,34 +39,30 @@
               <div class="col-lg-12">
                   <table id="mitabla" class="table table-striped table-bordered table-condensed table-hover">
                     <thead>
-                      <th>EDITAR</th>
-                      <th>BORRAR</th>
-                      <th>GASTO</th>
-                      <th>TIPO DE GASTO</th>
+                      <th>OPCIONES</th>
+                      <th>TIPO</th>
                       <th>CONDICION</th>
                     </thead>
                       <tbody>
-                        @foreach ($gastos as $key => $value)
+                        @foreach ($tipo as $key => $value)
                           <tr>
-                            <td><a class="btn btn-info" href="{{ route('gasto.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></td>
-                            <td><form method="POST" action =" {{route('gasto.destroy', $value->id)}}">
+                            <td>
+                              <button class="btn btn-secondary"><a href="{{ route('tipos_de_gastos.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></button>
+                              <form method="POST" action =" {{route('tipos_de_gastos.destroy', $value->id)}}">
                                   <input type="hidden" name="_method" value="delete" />
                                   {{ csrf_field() }}
                                   <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                 </form>
 
                             </td>
-                            <td>{{$value->gasto}}</td>
-                            <td>{{$value->tipo_de_gasto->tipo}}</td>
+                            <td>{{$value->tipo}}</td>
                             <td>{{$value->condicion}}</td>
                           </tr>
                         @endforeach
                       </tbody>
                       <tfoot>
-                        <th>EDITAR</th>
-                        <th>BORRAR</th>
-                        <th>GASTO</th>
-                        <th>TIPO DE GASTO</th>
+                        <th>OPCIONES</th>
+                        <th>TIPO</th>
                         <th>CONDICION</th>
                       </tfoot>
                   </table>

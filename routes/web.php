@@ -20,6 +20,8 @@ Route::delete('/configuracion/bank-editar/{id}', 'BankController@delete')->name(
 Route::post('/configuracion/bank-editar/{id}', 'BankController@editar_grabar')->name('editarbank-post');
 
 Route::resource('/configuracion/gasto', 'GastosController');
+Route::resource('/configuracion/tipos_de_gastos', 'Tipo_de_gastoController');
+Route::resource('/registros/registrodegastos', 'RegistrodeGastosController');
 
 
 Route::get('/', function () {
