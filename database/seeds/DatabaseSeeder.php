@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Tipo_de_gasto;
+use App\Gasto;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-    }
+        $tipos_de_gastos = factory(Tipo_de_gasto::class)->times(50)->create();
+        $gastos = factory(Gasto::class)->times(50)->create();
+      }
 }
