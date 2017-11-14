@@ -17,7 +17,7 @@ class CreateRegGastosTable extends Migration
             $table->increments('id');
             $table->date('fecha')->nullable();
             $table->integer('gasto_id');
-            $table->decimal('importe');
+            $table->float('importe');
             $table->string('comentario')->nullable();
             $table->timestamps();
         });

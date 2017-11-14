@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Reg_Gasto;
 use App\Gasto;
@@ -18,8 +18,17 @@ class RegistrodeGastosController extends Controller
     public function index()
     {
         $reg_gastos = Reg_Gasto::all();
+
         $gastos = Gasto::all();
         $tipos = Tipo_de_gasto::all();
+
+
+
+        $reg_gastos ->select(DB::raw('count(id) as `data`'),DB::raw("CONCAT_WS('-',MONTH(fecha),YEAR(fecha)) as fechas"))
+                 ->groupby('fechas')
+                 ->get();
+dd($reg_gastos);
+
 
         return view('registros.gastos')
         ->with('reg_gastos', $reg_gastos)
