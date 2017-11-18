@@ -13,6 +13,11 @@ class Reg_Gasto extends Model
   public function gasto() {
         return $this->belongsTo(Gasto::class); // Le indicamos que se va relacionar con el atributo id
     }
+public function scopeComentario($query,$comentario){
 
+          if(trim($comentario)!=""){
+          $query->where("comentario","LIKE","%$comentario%");
+          }
+}
 
 }

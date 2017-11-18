@@ -73,6 +73,28 @@
             <!-- /.panel -->
         </div>
 
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    buscando
+                </div>
+                <div class="panel-body">
+                    <form name="" id="" method="get">
+                      {{ csrf_field() }}
+                      <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <label>buscar:</label>
+                        <input type="text" class="form-control" name="comentario">
+
+                      <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+                      </div>
+                    </form>
+                  </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+
 
   <!-- /.ACA COMIENZA LA TABLA!!!!!! -->
           <div class="panel-body">
