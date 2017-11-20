@@ -18,8 +18,8 @@ class CreateRegGastosTable extends Migration
             $table->timestamp('fecha');
             $table->integer('gasto_id')->unsigned();
             $table->foreign('gasto_id')->references('id')->on('gastos');
-            $table->integer('tipo_de_gasto_id')->unsigned();
-            $table->foreign('tipo_de_gasto_id')->references('id')->on('tipos_de_gastos');
+            // $table->integer('tipo_de_gasto_id')->unsigned();
+            // $table->foreign('tipo_de_gasto_id')->references('id')->on('tipos_de_gastos');
             $table->float('importe');
             $table->string('comentario')->nullable();
             $table->timestamps();

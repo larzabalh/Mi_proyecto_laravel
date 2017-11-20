@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Tipo_de_gasto;
-use App\Gasto;
+use App\Cliente;
 use App\Reg_Gasto;
 
 class DatabaseSeeder extends Seeder
@@ -58,8 +57,6 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        $reg_gasto = factory(Reg_Gasto::class)->times(30)->create();
-
         DB::table('disponibilidades')->insert([
           ['id' => '1', 'disponibilidad' => 'CAJA OFICINA','created_at' => new DateTime, 'updated_at' => new DateTime],
           ['id' => '2', 'disponibilidad' => 'CAJA CASA','created_at' => new DateTime, 'updated_at' => new DateTime],
@@ -112,9 +109,26 @@ class DatabaseSeeder extends Seeder
           ['id' => '9', 'forma_pago' => 'NATIVA','disponibilidad_id' => '11','created_at' => new DateTime, 'updated_at' => new DateTime],
           ['id' => '10', 'forma_pago' => 'EFECTIVO','disponibilidad_id' => '1','created_at' => new DateTime, 'updated_at' => new DateTime],
           ['id' => '11', 'forma_pago' => 'DEBITO AUTOMATICO','disponibilidad_id' => '4','created_at' => new DateTime, 'updated_at' => new DateTime],
-      
+
         ]);
 
+        DB::table('clientes')->insert([
+          ['id' => '1', 'cliente' => 'Granny','honorario' => 6000,'email' => 'kathryne.lakin@hotmail.com','facturador_id' => 3,'liquidador_id' => 1,'cobrador_id' => 1,'disponibilidad_id' => 1,'contacto' => 'Marcela','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '2', 'cliente' => 'Chatelet','honorario' => 6000,'email' => 'raynor.freida@hotmail.com','facturador_id' => 3,'liquidador_id' => 1,'cobrador_id' => 1,'disponibilidad_id' => 1,'contacto' => 'Marcela','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '3', 'cliente' => 'Segovia Marcelo','honorario' => 3000,'email' => 'abelardo.koch@hotmail.com','facturador_id' => 4,'liquidador_id' => 2,'cobrador_id' => 1,'disponibilidad_id' => 1,'contacto' => 'Marcelo','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '4', 'cliente' => 'Barea Mabel','honorario' => 1800,'email' => 'lilyan.littel@shields.net','facturador_id' => 4,'liquidador_id' => 2,'cobrador_id' => 2,'disponibilidad_id' => 7,'contacto' => 'Mabel','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '5', 'cliente' => 'Lanieri Juan Manuel','honorario' => 3500,'email' => 'littel.eladio@gutmann.org','facturador_id' => 5,'liquidador_id' => 3,'cobrador_id' => 1,'disponibilidad_id' => 1,'contacto' => 'Lily','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '6', 'cliente' => 'Irineo SRL','honorario' => 6000,'email' => 'marisa.halvorson@zboncak.org','facturador_id' => 1,'liquidador_id' => 3,'cobrador_id' => 3,'disponibilidad_id' => 10,'contacto' => 'Pablo','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '7', 'cliente' => 'Mosconi SRL','honorario' => 5000,'email' => 'cfisher@yahoo.com','facturador_id' => 1,'liquidador_id' => 3,'cobrador_id' => 3,'disponibilidad_id' => 1,'contacto' => 'Mariela','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '8', 'cliente' => 'Britez Caceres Zunilda','honorario' => 700,'email' => 'fermin87@yahoo.com','facturador_id' => 2,'liquidador_id' => 4,'cobrador_id' => 1,'disponibilidad_id' => 6,'contacto' => 'Zunny','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '9', 'cliente' => 'Arias Roberto','honorario' => 4500,'email' => 'mills.jordi@gmail.com','facturador_id' => 2,'liquidador_id' => 3,'cobrador_id' => 2,'disponibilidad_id' => 3,'contacto' => 'Roberto','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '10', 'cliente' => 'Caballero Oscar','honorario' => 1300,'email' => 'kertzmann.kevon@denesik.com','facturador_id' => 5,'liquidador_id' => 6,'cobrador_id' => 3,'disponibilidad_id' => 4,'contacto' => 'Oscar','created_at' => new DateTime, 'updated_at' => new DateTime],
+          ['id' => '11', 'cliente' => 'Espinoza Diego','honorario' => 2500,'email' => 'walker.randall@yahoo.com','facturador_id' => 3,'liquidador_id' => 5,'cobrador_id' => 1,'disponibilidad_id' => 5,'contacto' => 'Susana','created_at' => new DateTime, 'updated_at' => new DateTime],
+
+        ]);
+
+        $reg_gasto = factory(Reg_Gasto::class)->times(30)->create();
+          // $clientes = factory(Cliente::class)->times(30)->create();
 
       }
 }

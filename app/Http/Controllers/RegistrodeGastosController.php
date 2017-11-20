@@ -29,12 +29,26 @@ class RegistrodeGastosController extends Controller
                       return Carbon::parse($val->fecha)->format('Y-m');
                     });
 
+        //
+        // $reg_gastos =Reg_Gasto::whereDate('fecha', 'like','%'.$request->periodo.'%')
+        //             ->gasto($request->get('gasto_buscar'))
+        //             ->tipo($request->get('tipo_buscar'))
+        //             ->importe($request->get('importe_buscar'))
+        //             ->get();
 
-        $reg_gastos =Reg_Gasto::whereDate('fecha', 'like','%'.$request->periodo.'%')
-                    ->gasto($request->get('gasto_buscar'))
-                    ->tipo($request->get('tipo_buscar'))
-                    ->importe($request->get('importe_buscar'))
-                    ->get();
+
+        $reg_gastos =DB::table('reg_gastos')
+            ->leftjoin('gastos', 'reg_gastos.gasto_id', '=', 'gastos.id')
+            ->leftjoin('tipos_de_gastos', 'gastos.tipo_de_gasto_id', '=', 'tipos_de_gastos.id')
+            ->where('importe',"LIKE",'%'.$request->input('importe_buscar').'%')
+            ->where('gastos.id',"LIKE",'%'.$request->input('gasto_buscar').'%')
+            ->where('tipos_de_gastos.id',"LIKE",'%'.$request->input('tipo_buscar').'%')
+            ->select('reg_gastos.*','gastos.gasto','tipos_de_gastos.tipo')
+            ->get();
+
+
+
+              // dd($reg_gastos,$request->input('tipo_buscar'));
 
         $gastos = Gasto::orderBy('gasto','ASC')->get();
 
@@ -66,13 +80,11 @@ class RegistrodeGastosController extends Controller
      */
     public function store(Request $request)
     {
-      //Esto lo hago para poder guardar el tipo_de_gasto_id
-      $gasto = Gasto::find($request->input('gasto'));
 
       $reg_gastos = new Reg_Gasto([
         'fecha' => $request->input('fecha'),
         'gasto_id' => $request->input('gasto'),
-        'tipo_de_gasto_id' => $gasto->tipo_de_gasto_id,
+        // 'tipo_de_gasto_id' => $gasto->tipo_de_gasto_id,
         'importe' => $request->input('importe'),
         'comentario' => $request->input('comentario')
 
@@ -116,13 +128,11 @@ class RegistrodeGastosController extends Controller
      */
     public function update(Request $request, $id)
     {
-      //Esto lo hago para poder guardar el tipo_de_gasto_id
-      $gasto = Gasto::find($request->input('gasto'));
+      
 
       $reg_gasto = Reg_Gasto::find($id);
       $reg_gasto->fecha = $request->input('fecha');
       $reg_gasto->gasto_id = $request->input('gasto');
-      $reg_gasto->tipo_de_gasto_id = $gasto->tipo_de_gasto_id;
       $reg_gasto->importe = $request->input('importe');
       $reg_gasto->comentario = $request->input('comentario');
 

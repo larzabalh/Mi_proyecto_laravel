@@ -19,11 +19,15 @@
 // Route::delete('/configuracion/bank-editar/{id}', 'BankController@delete')->name('borrarbank');
 // Route::post('/configuracion/bank-editar/{id}', 'BankController@editar_grabar')->name('editarbank-post');
 
-
+// DB::listen(function($query){
+//
+//   echo "<pre>{$query->sql}</pre>";
+// });
 
 Route::resource('/configuracion/gasto', 'GastosController');
 Route::resource('/configuracion/tipos_de_gastos', 'Tipo_de_gastoController');
 Route::resource('/registros/registrodegastos', 'RegistrodeGastosController');
+Route::resource('/clientes', 'ClienteController');
 
 
 Route::get('/', function () {

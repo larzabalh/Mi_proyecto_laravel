@@ -297,7 +297,7 @@
                       <a href="{{route ('registrodegastos.index')}}"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
                   </li>
                   <li>
-                      <a href="forms.php"><i class="fa fa-edit fa-fw"></i> FORMULARIOS</a>
+                      <a href="{{route ('clientes.index')}}"><i class="fa fa-edit fa-fw"></i> CLIENTES</a>
                   </li>
                   <li>
                       <a href="#"><i class="fa fa-wrench fa-fw"></i> VISTAS<span class="fa arrow"></span></a>

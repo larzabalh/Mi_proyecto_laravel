@@ -16,6 +16,8 @@ class CreateDisponibilidadesTable extends Migration
         Schema::create('disponibilidades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('disponibilidad')->unique();
+            $table->float('debe')->nullable();;
+            $table->float('haber')->nullable();;
             // $table->integer('forma_pagos_id')->unsigned()->nullable();
             // $table->foreign('forma_pagos_id')->references('id')->on('forma_pagos');
             $table->string('comentario')->nullable();

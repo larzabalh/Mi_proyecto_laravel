@@ -150,7 +150,6 @@
                       <th>TIPO DE GASTO</th>
                       <th>IMPORTE</th>
                       <th>COMENTARIO</th>
-                      <th>CONDICION</th>
                     </thead>
                       <tbody>
                         @foreach ($reg_gastos as $value)
@@ -162,12 +161,12 @@
                                   <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                 </form>
                             </td>
-                            <td>{{$value->fecha->format('Y-m')}}</td>
-                            <td>{{$value->gasto->gasto}}</td>
-                            <td>{{$value->tipo_de_gasto->tipo}}</td>
+                            <td>{{date('Y-m', strtotime($value->fecha))}}</td>
+
+                            <td>{{$value->gasto}}</td>
+                            <td>{{$value->tipo}}</td>
                             <td>$ {{number_format($value->importe,2)}}</td>
                             <td>{{$value->comentario}}</td>
-                            <td>{{$value->condicion}}</td>
                           </tr>
                         @endforeach
                       </tbody>
@@ -179,7 +178,6 @@
                         <th>TIPO DE GASTO</th>
                         <th>IMPORTE</th>
                         <th>COMENTARIO</th>
-                        <th>CONDICION</th>
                       </tfoot>
                   </table>
               </div>
