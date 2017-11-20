@@ -6,6 +6,7 @@ use App\Tipo_de_gasto;
 
 $factory->define(Tipo_de_gasto::class, function (Faker $faker) {
     return [
-      'tipo'=> $faker->word,
+      'tipo'=> 'FIJO',
+      'tipo'=> 'VARIABLE',
     ];
 });

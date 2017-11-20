@@ -3,24 +3,8 @@
 @section('title','titulo')
 
 @section('content')
-
-
-
   <div id="page-wrapper">
     <div class="row">
-@php
-  $saldo=0
-@endphp
-      @foreach ($reg_gastos as $value)
-
-@php
-  $saldo += $value->importe
-@endphp
-      @endforeach
-
-      TOTAL GASTADO HASTA AHORA:{{$saldo}}
-      </div>
-      <div class="row">
         <!-- /.ACA COMIENZA EL FORMULARIO DE ALTA!!!!!! -->
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -72,21 +56,58 @@
             </div>
             <!-- /.panel -->
         </div>
-
+<!-- /.ACA ARRANCAN LOS FILTROS DE BUSQUEDAS -->
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    buscando
+                    FILTROS
                 </div>
                 <div class="panel-body">
+                  <div class="form-group col-lg-12 col-md-3 col-sm-3 col-xs-12">
                     <form name="" id="" method="get">
                       {{ csrf_field() }}
-                      <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <label>buscar:</label>
-                        <input type="text" class="form-control" name="comentario">
 
+
+                        <div class="form-group col-lg-12 col-md-3 col-sm-3 col-xs-12">
+                          <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                          <label>MESES:</label>
+                          <select class="form-control" name="periodo">
+                            <option selected></option>
+
+                          @foreach ($periodos as $clave=>$value)
+
+                            <option value={{$clave}}>{{$clave}}</option>
+                          @endforeach
+                          </select>
+                          </div>
+
+                          <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <label>Gastos:</label><br>
+                            <select class="form-control" name="gasto_buscar">
+                              <option selected></option>
+                              @foreach ($gastos as $key => $value)
+                                <option value={{$value->id}}>{{$value->gasto}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <label>TIPOS DE GASTOS:</label><br>
+                            <select class="form-control" name="tipo_buscar">
+                              <option selected></option>
+                              @foreach ($tipos as $key => $value)
+                                <option value={{$value->id}}>{{$value->tipo}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <label>IMPORTE:</label><br>
+                            <input type="decimal" class="form-control" name="importe_buscar" maxlength="50" placeholder="999.99">
+                          </div>
+                        </div>
                       <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> FILTRAR</button>
+                        <a href="{{route('registrodegastos.index')}}" class="btn btn-success">SIN FILTROS</a>
                       </div>
                     </form>
                   </div>
@@ -94,7 +115,28 @@
             </div>
             <!-- /.panel -->
         </div>
+      </div>
 
+  <!-- /.ACA COMIENZA EL CALCULO DEL GASTO!!!!!! -->
+      @php
+        $saldo=0
+      @endphp
+            @foreach ($reg_gastos as $value)
+
+      @php
+        $saldo += $value->importe
+      @endphp
+            @endforeach
+      <div class="col-lg-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  TOTAL DE GASTO:
+              </div>
+              <div class="panel-body text-center">
+                  <h3>$ {{number_format($saldo,2)}}</h3>
+              </div>
+          </div>
+      </div>
 
   <!-- /.ACA COMIENZA LA TABLA!!!!!! -->
           <div class="panel-body">
@@ -113,17 +155,17 @@
                       <tbody>
                         @foreach ($reg_gastos as $value)
                           <tr>
-                            <td><a class="btn btn-info" href="{{ route('gasto.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></td>
-                            <td><form method="POST" action =" {{route('gasto.destroy', $value->id)}}">
+                            <td><a class="btn btn-info" href="{{ route('registrodegastos.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></td>
+                            <td><form method="POST" action =" {{route('registrodegastos.destroy', $value->id)}}">
                                   <input type="hidden" name="_method" value="delete" />
                                   {{ csrf_field() }}
                                   <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                 </form>
                             </td>
-                            <td>{{$value->fecha}}</td>
+                            <td>{{$value->fecha->format('Y-m')}}</td>
                             <td>{{$value->gasto->gasto}}</td>
-                            <td>{{$value->gasto->tipo_de_gasto->tipo}}</td>
-                            <td>{{$value->importe}}</td>
+                            <td>{{$value->tipo_de_gasto->tipo}}</td>
+                            <td>$ {{number_format($value->importe,2)}}</td>
                             <td>{{$value->comentario}}</td>
                             <td>{{$value->condicion}}</td>
                           </tr>
@@ -151,6 +193,8 @@
       <!-- /.row -->
   </div>
   <!-- /#page-wrapper -->
+
+</div>
 @endsection
 
 
