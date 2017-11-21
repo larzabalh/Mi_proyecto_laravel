@@ -56,7 +56,7 @@
 
           <div class="panel-body">
               <div class="col-lg-12">
-                  <table id="mitabla" class="table table-striped table-bordered table-condensed table-hover">
+                  <table id="mitabla"  class="table table-striped table-bordered table-condensed table-hover">
                     <thead>
                       <th>EDITAR</th>
                       <th>BORRAR</th>

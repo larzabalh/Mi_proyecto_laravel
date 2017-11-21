@@ -291,7 +291,7 @@
                       <!-- /.nav-second-level -->
                   </li>
                   <li>
-                      <a href="index.php"><i class="fa fa-dashboard fa-fw"></i>REGISTROS BANCARIOS</a>
+                      <a href="{{route ('ingresos.index')}}"><i class="fa fa-dashboard fa-fw"></i>INGRESOS</a>
                   </li>
                   <li>
                       <a href="{{route ('registrodegastos.index')}}"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
