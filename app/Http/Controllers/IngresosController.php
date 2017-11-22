@@ -39,9 +39,11 @@ class IngresosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      // dd($request->input('cliente'));
+      dd($request->cliente);
+        return 'aca estoy';
     }
 
     /**
@@ -98,5 +100,12 @@ class IngresosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function muchos(Request $request)
+    {
+      // dd($request->input('cliente'));
+      dd($request->cliente);
+        return 'aca estoy';
     }
 }

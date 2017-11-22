@@ -29,6 +29,7 @@ Route::resource('/configuracion/tipos_de_gastos', 'Tipo_de_gastoController');
 Route::resource('/registros/registrodegastos', 'RegistrodeGastosController');
 Route::resource('/clientes', 'ClienteController');
 Route::resource('/ingresos', 'IngresosController');
+Route::post('/ingresos/muchos', 'IngresosController@muchos')->name('ingresos.muchos')
 
 
 Route::get('/', function () {

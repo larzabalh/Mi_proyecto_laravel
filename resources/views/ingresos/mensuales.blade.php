@@ -31,6 +31,11 @@
 
           <div class="panel-body">
               <div class="col-lg-12">
+                <form method="post" action =" {{route('ingresos.muchos', $value->id)}}">
+                  <input type="hidden" name="_method" value="" />
+                  {{ csrf_field() }}
+                  {{ method_field('POST') }}
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
                 <table class="table table-hover">
                   <tbody>
                   <tr>
@@ -40,29 +45,34 @@
                      <th>HONORARIO</th>
                   </tr>
                   <tr>
+
                     @foreach ($clientes as $value)
                     <td><a class="btn btn-info" href="{{ route('clientes.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></td>
-                    <td><form method="POST" action =" {{route('clientes.destroy', $value->id)}}">
-                          <input type="hidden" name="_method" value="delete" />
-                          {{ csrf_field() }}
+                    <td>
+
                           <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                        </form>
+
                     </td>
                     <td>{{$value->cliente}}</td>
                     <form class="" action="index.html" method="post">
 
                     </form>
                     <td>
-                      <form method="POST" action =" {{route('ingresos.destroy', $value->id)}}">
+
                           <input type="hidden" name="_method" value="delete" />
                           {{ csrf_field() }}
-                      <input type="decimal" class="form-control" name="fecha" value="{{number_format($value->honorario,2)}}">
-                      </form>
+                      <input type="hidden" name="cliente[{{$value->id}}]" value="{{$value->id}}">
+                      <input type="decimal" class="form-control" name="honorario[{{$value->id}}]" value="{{number_format($value->honorario,2)}}">
                     </td>
                   </tr>
                     @endforeach
+
                   </tbody>
                 </table>
+                <div class="">
+
+                </form>
+                </div>
               </div>
           </div>
 
