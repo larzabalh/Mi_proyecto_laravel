@@ -241,10 +241,13 @@
                       </div>
                       <!-- /input-group -->
                   </li>
+
+
+
                   <!-- NOTE: empiezan los botones de opciones de la izquierda -->
                   <li>
                       <a href="#"><i class="fa fa-sitemap fa-fw"></i>CONFIGURACION<span class="fa arrow"></span></a>
-                      <ul class="nav nav-second-level">
+                      <ul class="nav nav-second-level collapse in" aria-hidden="true">
                         <li>
                             <a href="#">BANCOS<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">

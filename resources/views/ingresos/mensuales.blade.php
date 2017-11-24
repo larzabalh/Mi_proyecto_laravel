@@ -63,7 +63,7 @@
                     <td>{{$value->cliente}}</td>
                     <td>
                       <input type="hidden" name="cliente[{{$value->id}}]" value="{{$value->id}}">
-                      <input type="decimal" class="form-control" name="honorario[{{$value->id}}]" value="{{number_format($value->honorario,2)}}">
+                      <input type="decimal" class="form-control" name="honorario[{{$value->id}}]" value="{{$value->honorario}}">
                     </td>
                   </tr>
                     @endforeach

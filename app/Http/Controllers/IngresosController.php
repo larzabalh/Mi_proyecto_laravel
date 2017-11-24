@@ -108,21 +108,18 @@ class IngresosController extends Controller
 
     public function mensual(Request $request)
     {
-      $clientes = $request->input('cliente');
+    
+      $honorarios = $request->input('honorario');
+
+      foreach ($honorarios as $idCliente => $monto) {
 
       $ingresomensual = new IngresosMensuales([
         'periodo_id' => $request->input('periodo'),
-
-        foreach ($clientes as $key => $value) {
-        'cliente_id' =>$value,
-        }
-        endforeach
-
-        // 'tipo_de_gasto_id' => $gasto->tipo_de_gasto_id,
-        'honorario' => $request->input('honorario')
-
+        'cliente_id' =>$idCliente,
+        'honorario' => $monto
       ]);
       $ingresomensual->save();
+    }
       return redirect()->route('ingresos.mensual');
 
   // dd($request);
