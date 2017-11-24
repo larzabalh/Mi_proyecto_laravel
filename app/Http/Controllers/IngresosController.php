@@ -9,6 +9,8 @@ use App\Facturador;
 use App\Liquidador;
 use App\Cobrador;
 use App\Disponibilidad;
+use App\Periodo;
+use App\IngresosMensuales;
 
 class IngresosController extends Controller
 {
@@ -24,6 +26,7 @@ class IngresosController extends Controller
       $liquidadores = Liquidador::orderBy('liquidador','ASC')->get();
       $cobradores = Cobrador::orderBy('cobrador','ASC')->get();
       $disponibilidades = Disponibilidad::orderBy('disponibilidad','ASC')->get();
+      $periodos = Periodo::orderBy('id','ASC')->get();
 
       // dd($facturadores,$liquidadores,$cobradores,$disponibilidades);
       return view('ingresos.mensuales')
@@ -31,7 +34,8 @@ class IngresosController extends Controller
       ->with('facturadores', $facturadores)
       ->with('liquidadores', $liquidadores)
       ->with('cobradores', $cobradores)
-      ->with('disponibilidades', $disponibilidades);
+      ->with('disponibilidades', $disponibilidades)
+      ->with('periodos', $periodos);
     }
 
     /**
@@ -102,10 +106,27 @@ class IngresosController extends Controller
         //
     }
 
-    public function muchos(Request $request)
+    public function mensual(Request $request)
     {
+      $clientes = $request->input('cliente');
+
+      $ingresomensual = new IngresosMensuales([
+        'periodo_id' => $request->input('periodo'),
+
+        foreach ($clientes as $key => $value) {
+        'cliente_id' =>$value,
+        }
+        endforeach
+
+        // 'tipo_de_gasto_id' => $gasto->tipo_de_gasto_id,
+        'honorario' => $request->input('honorario')
+
+      ]);
+      $ingresomensual->save();
+      return redirect()->route('ingresos.mensual');
+
+  // dd($request);
+
       // dd($request->input('cliente'));
-      dd($request->cliente);
-        return 'aca estoy';
     }
 }

@@ -15,6 +15,23 @@ class DatabaseSeeder extends Seeder
     {
         // $tipos_de_gastos = factory(Tipo_de_gasto::class)->times(5)->create();
            // $gastos = factory(Gasto::class)->times(20)->create();
+
+         DB::table('periodos')->insert([
+           ['id' => '1', 'periodo' => '2017-01','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '2', 'periodo' => '2017-02','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '3', 'periodo' => '2017-03','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '4', 'periodo' => '2017-04','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '5', 'periodo' => '2017-05','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '6', 'periodo' => '2017-06','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '7', 'periodo' => '2017-07','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '8', 'periodo' => '2017-08','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '9', 'periodo' => '2017-09','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '10', 'periodo' => '2017-10','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '11', 'periodo' => '2017-11','created_at' => new DateTime, 'updated_at' => new DateTime],
+           ['id' => '12', 'periodo' => '2017-12','created_at' => new DateTime, 'updated_at' => new DateTime],
+
+         ]);
+
          DB::table('tipos_de_gastos')->insert([
            ['id' => '1', 'tipo' => 'FIJO','created_at' => new DateTime, 'updated_at' => new DateTime],
            ['id' => '2', 'tipo' => 'VARIABLE','created_at' => new DateTime, 'updated_at' => new DateTime],

@@ -31,36 +31,37 @@
 
           <div class="panel-body">
               <div class="col-lg-12">
-                <form method="post" action =" {{route('ingresos.muchos', $value->id)}}">
+                <form method="post" action =" {{route('ingresos.mensual', $value->id)}}">
                   <input type="hidden" name="_method" value="" />
                   {{ csrf_field() }}
                   {{ method_field('POST') }}
-                  <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                      <label>PERIODO:</label><br>
+                      <select class="form-control" name="periodo">
+                        <option selected></option>
+                        @foreach ($periodos as $key => $value)
+                          <option value={{$value->id}}>{{$value->periodo}}</option>
+                        @endforeach
+                      </select>
+                      <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+                    </div>
+
+
+
                 <table class="table table-hover">
                   <tbody>
                   <tr>
-                     <th>EDITAR</th>
-                     <th>BORRAR</th>
+                     <th>Nº</th>
                      <th>CLIENTE</th>
                      <th>HONORARIO</th>
                   </tr>
                   <tr>
-
+                    @php $i=1;@endphp
                     @foreach ($clientes as $value)
-                    <td><a class="btn btn-info" href="{{ route('clientes.edit', $value->id)}}"><i class="fa fa-pencil"></i></a></td>
-                    <td>
 
-                          <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-
-                    </td>
+                    <td>{{$i++}}</td>
                     <td>{{$value->cliente}}</td>
-                    <form class="" action="index.html" method="post">
-
-                    </form>
                     <td>
-
-                          <input type="hidden" name="_method" value="delete" />
-                          {{ csrf_field() }}
                       <input type="hidden" name="cliente[{{$value->id}}]" value="{{$value->id}}">
                       <input type="decimal" class="form-control" name="honorario[{{$value->id}}]" value="{{number_format($value->honorario,2)}}">
                     </td>
