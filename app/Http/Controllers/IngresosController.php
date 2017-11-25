@@ -11,6 +11,9 @@ use App\Cobrador;
 use App\Disponibilidad;
 use App\Periodo;
 use App\IngresosMensuales;
+use App\Http\Requests\IngresosMensualesRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class IngresosController extends Controller
 {
@@ -29,7 +32,7 @@ class IngresosController extends Controller
       $periodos = Periodo::orderBy('id','ASC')->get();
 
       // dd($facturadores,$liquidadores,$cobradores,$disponibilidades);
-      return view('ingresos.mensuales')
+      return view('ingresos.ingresos')
       ->with('clientes', $clientes)
       ->with('facturadores', $facturadores)
       ->with('liquidadores', $liquidadores)
@@ -106,10 +109,10 @@ class IngresosController extends Controller
         //
     }
 
-    public function mensual(Request $request)
+    public function asignar(IngresosMensualesRequest $request)
     {
-    
       $honorarios = $request->input('honorario');
+      $periodo = Periodo::find($request->input('periodo'));
 
       foreach ($honorarios as $idCliente => $monto) {
 
@@ -120,7 +123,7 @@ class IngresosController extends Controller
       ]);
       $ingresomensual->save();
     }
-      return redirect()->route('ingresos.mensual');
+      return redirect()->route('mensual.index')->with('periodo', $periodo);;
 
   // dd($request);
 

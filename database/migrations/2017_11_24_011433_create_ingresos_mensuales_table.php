@@ -20,6 +20,7 @@ class CreateIngresosMensualesTable extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->float('honorario');
+            $table->boolean('condicion')->default(1);
             $table->timestamps();
         });
     }

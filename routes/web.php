@@ -28,8 +28,10 @@ Route::resource('/configuracion/gasto', 'GastosController');
 Route::resource('/configuracion/tipos_de_gastos', 'Tipo_de_gastoController');
 Route::resource('/registros/registrodegastos', 'RegistrodeGastosController');
 Route::resource('/clientes', 'ClienteController');
+Route::resource('/ingresos/mensual', 'IngresoMensualController');
 Route::resource('/ingresos', 'IngresosController');
-Route::post('/ingresos/mensual', 'IngresosController@mensual')->name('ingresos.mensual');
+Route::post('/ingresos/ingresos', 'IngresosController@asignar')->name('ingresos.asignar');
+
 
 
 Route::get('/', function () {
