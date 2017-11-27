@@ -12,9 +12,8 @@
     @yield('content')
 </div>
 
+  @yield('script')
   @include('template.footer')
-  @yield('java')
-
 
 
 

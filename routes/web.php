@@ -31,6 +31,7 @@ Route::resource('/clientes', 'ClienteController');
 Route::resource('/ingresos/mensual', 'IngresoMensualController');
 Route::resource('/ingresos', 'IngresosController');
 Route::post('/ingresos/ingresos', 'IngresosController@asignar')->name('ingresos.asignar');
+Route::resource('/pruebas', 'PruebaController');
 
 
 

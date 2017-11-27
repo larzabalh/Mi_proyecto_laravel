@@ -42,6 +42,7 @@
                         @endforeach
                       </select>
                         <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> FILTRAR</button>
+                        <a class="btn btn-info" href="{{ route('mensual.edit',(1))}}"><i class="fa fa-pencil"></i></a>
                       </div>
                   </form>
                 </div>
@@ -93,9 +94,24 @@
 
 @section('java')
 
-{{-- <script>
-  $(document).ready(function(){
-      $('#mitabla').DataTable()
-    });
-</script> --}}
+<script>
+
+
+  window.onload = function() {
+
+document.getElementById('form').onsubmit=function(e){
+  e.preventDefault();
+
+  if (document.getElementById('usuario').value == "" ) {
+    document.getElementById('error-usuario').innerHTML='El usuario no puede estar vacio';
+    }
+
+
+  if (document.getElementById('clave').value == "" ) {
+  document.getElementById('error-clave').innerHTML='La clave no puede estar vacia';
+    }
+
+  }
+};
+</script>
 @endsection

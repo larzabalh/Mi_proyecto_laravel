@@ -20,6 +20,7 @@
 
 <!-- jQuery -->
 <script src="/plugins/js/jquery-3.1.1.min.js"></script>
+<script src="{{ asset('js/app.js')}}"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="/plugins/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
